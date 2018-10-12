@@ -11,6 +11,7 @@ package csc4380;
  */
 public class View extends javax.swing.JFrame {
 
+
     /**
      * Creates new form View
      */
@@ -78,6 +79,51 @@ public class View extends javax.swing.JFrame {
         });
     }
 
+    
+    //This method replaces the text in the left text box with s
+    void setLeftVal(String s) {
+        
+    }
+
+    
+    //This method replaces the value of the drop down with s
+    void setLeftDropDown(String s) {
+        
+    }
+
+    
+    //This method replaces the value of the right text box with s
+    void setRightVal(String s) {
+        
+    }
+
+    //This method replaces the value of the right drop down with s
+    void setRightDropDown(String s) {
+        
+    }
+
+    
+    //This method returns what is currently stored in the left text box
+    String getLeftText() {
+      return null;
+    }
+
+    
+    //This method returns what is currently stored in the right drop down
+    String getRightDropDown() {
+        return null;
+    }
+
+    
+    //This method returns what is currently stored 
+    String getLeftDropDown() {
+        return null;
+    }
+
+    
+    
+    
+    private Controller c = new Controller();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
