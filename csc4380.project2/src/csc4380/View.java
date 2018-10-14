@@ -5,6 +5,8 @@
  */
 package csc4380;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author aaron
@@ -229,6 +231,22 @@ public class View extends javax.swing.JFrame {
         return leftDropDown.getSelectedItem().toString();
     }
 
+    
+    //Add Action Listeners
+    public void addbtnSwapListener(ActionListener listener) {
+        this.button_swap.addActionListener(listener);
+    }
+    
+    public void addbtnConvertListener(ActionListener listener) {
+        this.button_convert.addActionListener(listener);
+    }
+    
+    public void addbtnClearListener(ActionListener listener) {
+        this.button_clear.addActionListener(listener);
+    }
+    
+    
+    
     
     
     
