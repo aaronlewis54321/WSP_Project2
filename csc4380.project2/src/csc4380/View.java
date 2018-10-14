@@ -32,63 +32,172 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         leftDropDown = new javax.swing.JComboBox<>();
-        rightDropDown = new javax.swing.JComboBox<>();
         leftAmount = new javax.swing.JTextField();
-        rightAmount = new javax.swing.JTextField();
-        button_swap = new javax.swing.JButton();
         leftSymbol = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        rightDropDown = new javax.swing.JComboBox<>();
+        rightAmount = new javax.swing.JTextField();
         rightSymbol = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        button_swap = new javax.swing.JButton();
         button_convert = new javax.swing.JButton();
         button_clear = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuItem_Exit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         leftDropDown.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        leftDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "US Dollars", "British Pounds" }));
+        leftDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "US Dollars", "British Pounds", "Euro", "Japanese Yen", "Chinese Yuan" }));
         leftDropDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 leftDropDownActionPerformed(evt);
             }
         });
 
+        leftAmount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        leftAmount.setText("1.00");
+
+        leftSymbol.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        leftSymbol.setText("$");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(leftSymbol)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(leftDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(leftAmount))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(leftDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(leftAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leftSymbol))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         rightDropDown.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        rightDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "US Dollars", "British Pounds" }));
+        rightDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "US Dollars", "British Pounds", "Euro", "Japanese Yen", "Chinese Yuan" }));
         rightDropDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rightDropDownActionPerformed(evt);
             }
         });
 
-        leftAmount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        leftAmount.setText("1.00");
-
         rightAmount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         rightAmount.setText("1.00");
 
+        rightSymbol.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        rightSymbol.setText("$");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(rightSymbol)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(rightDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rightAmount))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(rightDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rightAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rightSymbol))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         button_swap.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         button_swap.setText("↔");
-
-        leftSymbol.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        leftSymbol.setText("$");
-
-        rightSymbol.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rightSymbol.setText("$");
+        button_swap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_swapActionPerformed(evt);
+            }
+        });
 
         button_convert.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         button_convert.setText("Convert");
+        button_convert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_convertActionPerformed(evt);
+            }
+        });
 
         button_clear.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         button_clear.setText("Clear");
+        button_clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_clearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(button_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 48, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(button_convert, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_swap)
+                .addGap(69, 69, 69))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(button_swap)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button_convert, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button_clear)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
         jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuItem_Exit.setText("Exit");
+        menuItem_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem_ExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuItem_Exit);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -96,44 +205,29 @@ public class View extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(leftSymbol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(leftDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(leftAmount))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(button_convert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_clear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_swap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
-                .addComponent(rightSymbol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rightDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightAmount))
-                .addGap(136, 136, 136))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(leftDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rightDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_swap))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(leftAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rightAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(leftSymbol)
-                    .addComponent(rightSymbol)
-                    .addComponent(button_convert, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(button_clear)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGap(81, 81, 81)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,6 +240,31 @@ public class View extends javax.swing.JFrame {
     private void rightDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightDropDownActionPerformed
         rightSymbol.setText(currency_symbols[rightDropDown.getSelectedIndex()]);
     }//GEN-LAST:event_rightDropDownActionPerformed
+
+    /**
+     * When an action is performed on button_swap, call the btnSwap method from the Controller class and pass this View instance and a parameter
+     */
+    private void button_swapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_swapActionPerformed
+        c.btnSwap(this);
+    }//GEN-LAST:event_button_swapActionPerformed
+
+    /**
+     * When an action is performed on button_convert, call the btnConvert method from the Controller class and pass this View instance and a parameter
+     */
+    private void button_convertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_convertActionPerformed
+        c.btnConvert(this);
+    }//GEN-LAST:event_button_convertActionPerformed
+
+    /**
+     * When an action is performed on button_clear, call the btnClear method from the Controller class and pass this View instance and a parameter
+     */
+    private void button_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_clearActionPerformed
+        c.btnClear(this);
+    }//GEN-LAST:event_button_clearActionPerformed
+
+    private void menuItem_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_ExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuItem_ExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,23 +348,7 @@ public class View extends javax.swing.JFrame {
     //This method returns what is currently stored 
     String getLeftDropDown() {
         return leftDropDown.getSelectedItem().toString();
-    }
-
-    
-    //Add Action Listeners
-    public void addbtnSwapListener(ActionListener listener) {
-        this.button_swap.addActionListener(listener);
-    }
-    
-    public void addbtnConvertListener(ActionListener listener) {
-        this.button_convert.addActionListener(listener);
-    }
-    
-    public void addbtnClearListener(ActionListener listener) {
-        this.button_clear.addActionListener(listener);
-    }
-    
-    
+    }    
     
     
     
@@ -256,14 +359,17 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JButton button_convert;
     private javax.swing.JButton button_swap;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField leftAmount;
     private javax.swing.JComboBox<String> leftDropDown;
     private javax.swing.JLabel leftSymbol;
+    private javax.swing.JMenuItem menuItem_Exit;
     private javax.swing.JTextField rightAmount;
     private javax.swing.JComboBox<String> rightDropDown;
     private javax.swing.JLabel rightSymbol;
     // End of variables declaration//GEN-END:variables
-    private static String[] currency_symbols = {"$", "£"};
+    private static String[] currency_symbols = {"$", "£", "€", "¥", "¥"};
 }
