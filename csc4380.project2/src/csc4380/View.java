@@ -21,6 +21,9 @@ public class View extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        button_covert.addActionListener(e -> c.btnConvert(this));
+        button_swap.addActionListener(e -> c.btnSwap(this));
+        button_clear.addActionListener(e -> c.btnClear(this));
     }
 
     /**
