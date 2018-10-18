@@ -27,7 +27,6 @@ public class View extends javax.swing.JFrame {
     public View() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //this.initUI();
         this.setVisible(true);
         button_covert.addActionListener(e -> c.btnConvert(this));
         button_swap.addActionListener(e -> c.btnSwap(this));
@@ -462,7 +461,7 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("History", panel_history);
+        jTabbedPane1.addTab("Profile", panel_history);
 
         jMenu1.setText("File");
 
@@ -572,11 +571,6 @@ public class View extends javax.swing.JFrame {
     String getLeftDropDown() {
         return leftDropDown.getSelectedItem().toString();
     }    
-    
-    void drawHist() {
-        Graphics g = panel_graph.getGraphics();
-        
-    }
     
     
     private Controller c = new Controller();
