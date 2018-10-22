@@ -65,5 +65,9 @@ public class Model implements Serializable {
     void setCurrentUser(String user) {
         currentUser = user;
     }
+
+    String getPassword(String uName) {
+        return "";
+    }
     
 }

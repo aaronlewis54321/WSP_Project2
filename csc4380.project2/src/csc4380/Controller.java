@@ -77,6 +77,10 @@ public class Controller {
         //the password passed in by the user
         //Example: m.getPassword(String uName);
         //For this I will need a getter to get the userName and Password field for the login side from Michael
+        if(m.userNameExists(v.getRightUserName()) && m.getPassword(v.getRightUserName()).equals(v.getRightPassword()))
+        {
+            m.setCurrentUser(v.getRightUserName());
+        }
     }
     
     
