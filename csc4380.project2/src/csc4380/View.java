@@ -167,7 +167,7 @@ public class View extends javax.swing.JFrame {
                 .addComponent(textField_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(button_signup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         panel_login.setBackground(new java.awt.Color(51, 0, 153));
@@ -235,7 +235,7 @@ public class View extends javax.swing.JFrame {
             .addGroup(panel_loginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_login)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(textField_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(127, 127, 127))
             .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,6 +351,11 @@ public class View extends javax.swing.JFrame {
         rightAmount.setText("0.77");
         rightAmount.setBorder(null);
         rightAmount.setOpaque(false);
+        rightAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rightAmountActionPerformed(evt);
+            }
+        });
 
         rightSymbol.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         rightSymbol.setForeground(new java.awt.Color(255, 255, 255));
@@ -583,6 +588,10 @@ public class View extends javax.swing.JFrame {
     private void button_clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clearMouseExited
         stopHover(button_clear);
     }//GEN-LAST:event_button_clearMouseExited
+
+    private void rightAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rightAmountActionPerformed
     
     void initUI() {
         JTextField[] fields = {leftAmount, rightAmount, textField_signup_user, textField_signup_pass, textField_login_user, textField_login_pass};
@@ -612,7 +621,7 @@ public class View extends javax.swing.JFrame {
     
     //This method replaces the text in the left text box with s
     void setLeftVal(String s) {
-        leftAmount.setText(s);
+        leftAmount.setText(String.format("%.2f", Double.parseDouble(s)));
     }
     
     //This method replaces the value of the drop down with s
@@ -626,7 +635,7 @@ public class View extends javax.swing.JFrame {
     
     //This method replaces the value of the right text box with s
     void setRightVal(String s) {
-        rightAmount.setText(s);
+        rightAmount.setText(String.format("%.2f", Double.parseDouble(s)));
     }
 
     //This method replaces the value of the right drop down with s
