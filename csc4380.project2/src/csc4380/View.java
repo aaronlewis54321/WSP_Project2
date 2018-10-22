@@ -11,7 +11,10 @@ import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import static javax.swing.SwingConstants.CENTER;
 
 /**
@@ -27,8 +30,9 @@ public class View extends javax.swing.JFrame {
     public View() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //this.initUI();
         this.setVisible(true);
+        this.initUI();
+        this.initListeners();
     }
 
     /**
@@ -45,17 +49,17 @@ public class View extends javax.swing.JFrame {
         panel_signup = new javax.swing.JPanel();
         label_signup = new javax.swing.JLabel();
         textField_signup_user = new javax.swing.JTextField();
-        textField_signup_pass = new javax.swing.JTextField();
         button_signup = new javax.swing.JButton();
         label_signup_user = new javax.swing.JLabel();
         label_signup_pass = new javax.swing.JLabel();
+        textField_signup_pass = new javax.swing.JPasswordField();
         panel_login = new javax.swing.JPanel();
         label_login = new javax.swing.JLabel();
         label_login_user = new javax.swing.JLabel();
         textField_login_user = new javax.swing.JTextField();
         label_login_pass = new javax.swing.JLabel();
-        textField_login_pass = new javax.swing.JTextField();
         button_login = new javax.swing.JButton();
+        textField_login_pass = new javax.swing.JPasswordField();
         panel_vert_separator = new javax.swing.JPanel();
         panel_converter = new javax.swing.JPanel();
         panel_convert_input = new javax.swing.JPanel();
@@ -68,23 +72,22 @@ public class View extends javax.swing.JFrame {
         rightDropDown = new javax.swing.JComboBox<>();
         panel_convert_buttons = new javax.swing.JPanel();
         button_swap = new javax.swing.JButton();
-        button_covert = new javax.swing.JButton();
+        button_convert = new javax.swing.JButton();
         button_clear = new javax.swing.JButton();
         panel_history = new javax.swing.JPanel();
-        panel_graph = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItem_Exit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.setBackground(new java.awt.Color(32, 0, 96));
+        jTabbedPane1.setBackground(new java.awt.Color(0, 25, 140));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
         panel_user.setBackground(new java.awt.Color(32, 0, 96));
 
-        panel_signup.setBackground(new java.awt.Color(51, 0, 153));
+        panel_signup.setBackground(new java.awt.Color(255, 255, 255));
         panel_signup.setOpaque(false);
         panel_signup.setPreferredSize(new java.awt.Dimension(300, 350));
 
@@ -94,18 +97,27 @@ public class View extends javax.swing.JFrame {
         label_signup.setText("Signup");
 
         textField_signup_user.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textField_signup_user.setForeground(new java.awt.Color(255, 255, 255));
         textField_signup_user.setBorder(null);
+        textField_signup_user.setOpaque(false);
         textField_signup_user.setPreferredSize(new java.awt.Dimension(100, 40));
 
-        textField_signup_pass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        textField_signup_pass.setBorder(null);
-        textField_signup_pass.setPreferredSize(new java.awt.Dimension(100, 40));
-
-        button_signup.setBackground(new java.awt.Color(51, 0, 204));
+        button_signup.setBackground(new java.awt.Color(0, 25, 140));
         button_signup.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         button_signup.setForeground(new java.awt.Color(255, 255, 255));
         button_signup.setText("Signup");
         button_signup.setBorder(null);
+        button_signup.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_signupMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button_signupMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button_signupMouseExited(evt);
+            }
+        });
 
         label_signup_user.setForeground(new java.awt.Color(255, 255, 255));
         label_signup_user.setText("Username");
@@ -113,27 +125,31 @@ public class View extends javax.swing.JFrame {
         label_signup_pass.setForeground(new java.awt.Color(255, 255, 255));
         label_signup_pass.setText("Password");
 
+        textField_signup_pass.setForeground(new java.awt.Color(255, 255, 255));
+        textField_signup_pass.setBorder(null);
+        textField_signup_pass.setOpaque(false);
+
         javax.swing.GroupLayout panel_signupLayout = new javax.swing.GroupLayout(panel_signup);
         panel_signup.setLayout(panel_signupLayout);
         panel_signupLayout.setHorizontalGroup(
             panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(label_signup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panel_signupLayout.createSequentialGroup()
-                .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_signupLayout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(button_signup, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_signupLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(label_signup_user, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_signupLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textField_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField_signup_user, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panel_signupLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(label_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textField_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_signupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_signupLayout.createSequentialGroup()
+                            .addGap(100, 100, 100)
+                            .addComponent(button_signup, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_signupLayout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(label_signup_user, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_signupLayout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(textField_signup_user, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_signupLayout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(label_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         panel_signupLayout.setVerticalGroup(
@@ -148,7 +164,7 @@ public class View extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(label_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textField_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textField_signup_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(button_signup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(60, Short.MAX_VALUE))
@@ -167,27 +183,41 @@ public class View extends javax.swing.JFrame {
         label_login_user.setText("Username");
 
         textField_login_user.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        textField_login_user.setForeground(new java.awt.Color(255, 255, 255));
         textField_login_user.setBorder(null);
+        textField_login_user.setOpaque(false);
         textField_login_user.setPreferredSize(new java.awt.Dimension(100, 40));
 
         label_login_pass.setForeground(new java.awt.Color(255, 255, 255));
         label_login_pass.setText("Password");
 
-        textField_login_pass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        textField_login_pass.setBorder(null);
-        textField_login_pass.setPreferredSize(new java.awt.Dimension(100, 40));
-
-        button_login.setBackground(new java.awt.Color(51, 0, 204));
+        button_login.setBackground(new java.awt.Color(0, 25, 140));
         button_login.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         button_login.setForeground(new java.awt.Color(255, 255, 255));
         button_login.setText("Login");
         button_login.setBorder(null);
+        button_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button_loginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button_loginMouseExited(evt);
+            }
+        });
+
+        textField_login_pass.setForeground(new java.awt.Color(255, 255, 255));
+        textField_login_pass.setBorder(null);
+        textField_login_pass.setOpaque(false);
 
         javax.swing.GroupLayout panel_loginLayout = new javax.swing.GroupLayout(panel_login);
         panel_login.setLayout(panel_loginLayout);
         panel_loginLayout.setHorizontalGroup(
             panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(label_login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addGroup(panel_loginLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(textField_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_loginLayout.createSequentialGroup()
                     .addGap(60, 60, 60)
@@ -196,10 +226,8 @@ public class View extends javax.swing.JFrame {
                             .addGap(40, 40, 40)
                             .addComponent(button_login, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(label_login_user, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textField_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField_login_user, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(label_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(label_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textField_login_user, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(60, Short.MAX_VALUE)))
         );
         panel_loginLayout.setVerticalGroup(
@@ -207,18 +235,18 @@ public class View extends javax.swing.JFrame {
             .addGroup(panel_loginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(label_login)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addComponent(textField_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
             .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel_loginLayout.createSequentialGroup()
                     .addGap(69, 69, 69)
                     .addComponent(label_login_user, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(textField_login_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField_login_user, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(label_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(textField_login_pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addGap(65, 65, 65)
                     .addComponent(button_login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(70, Short.MAX_VALUE)))
         );
@@ -271,9 +299,12 @@ public class View extends javax.swing.JFrame {
 
         panel_convert_input.setBackground(new java.awt.Color(32, 0, 96));
 
+        leftAmount.setBackground(new java.awt.Color(51, 0, 153));
         leftAmount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        leftAmount.setForeground(new java.awt.Color(255, 255, 255));
         leftAmount.setText("1.00");
         leftAmount.setBorder(null);
+        leftAmount.setOpaque(false);
 
         leftSymbol.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         leftSymbol.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,6 +313,11 @@ public class View extends javax.swing.JFrame {
         leftDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Argentine Peso", "Australian Dollar", "Bahraini Dinar", "Botswana Pula", "Brazilian Real", "British Pound", "Bruneian Dollar", "Bulgarian Lev", "Canadian Dollar", "Chilean Peso", "Chinese Yuan Renminbi", "Colombian Peso", "Croatian Kuna", "Czech Koruna", "Danish Krone", "Emirati Dirham", "Euro", "Hong Kong Dollar", "Hungarian Forint", "Icelandic Krona", "Indian Rupee", "Indonesian Rupiah", "Iranian Rial", "Israeli Shekel", "Japanese Yen", "Kazakhstani Tenge", "Kuwaiti Dinar", "Libyan Dinar", "Malaysian Ringgit", "Mauritian Rupee", "Mexican Peso", "Nepalese Rupee", "New Zealand Dollar", "Norwegian Krone", "Omani Rial", "Pakistani Rupee", "Philippine Peso", "Polish Zloty", "Qatari Riyal", "Romanian New Leu", "Russian Ruble", "Saudi Arabian Riyal", "Singapore Dollar", "South African Rand", "South Korean Won", "Sri Lankan Rupee", "Swedish Krona", "Swiss Franc", "Taiwan New Dollar", "Thai Baht", "Trinidadian Dollar", "Turkish Lira", "US Dollar", "Venezuelan Bolivar" }));
         leftDropDown.setSelectedIndex(52);
         leftDropDown.setBorder(null);
+        leftDropDown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leftDropDownActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_convert_inputLayout = new javax.swing.GroupLayout(panel_convert_input);
         panel_convert_input.setLayout(panel_convert_inputLayout);
@@ -299,7 +335,7 @@ public class View extends javax.swing.JFrame {
         panel_convert_inputLayout.setVerticalGroup(
             panel_convert_inputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_convert_inputLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(leftDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_convert_inputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -310,7 +346,11 @@ public class View extends javax.swing.JFrame {
 
         panel_convert_output.setBackground(new java.awt.Color(32, 0, 96));
 
+        rightAmount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        rightAmount.setForeground(new java.awt.Color(255, 255, 255));
+        rightAmount.setText("0.77");
         rightAmount.setBorder(null);
+        rightAmount.setOpaque(false);
 
         rightSymbol.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         rightSymbol.setForeground(new java.awt.Color(255, 255, 255));
@@ -319,6 +359,11 @@ public class View extends javax.swing.JFrame {
         rightDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Argentine Peso", "Australian Dollar", "Bahraini Dinar", "Botswana Pula", "Brazilian Real", "British Pound", "Bruneian Dollar", "Bulgarian Lev", "Canadian Dollar", "Chilean Peso", "Chinese Yuan Renminbi", "Colombian Peso", "Croatian Kuna", "Czech Koruna", "Danish Krone", "Emirati Dirham", "Euro", "Hong Kong Dollar", "Hungarian Forint", "Icelandic Krona", "Indian Rupee", "Indonesian Rupiah", "Iranian Rial", "Israeli Shekel", "Japanese Yen", "Kazakhstani Tenge", "Kuwaiti Dinar", "Libyan Dinar", "Malaysian Ringgit", "Mauritian Rupee", "Mexican Peso", "Nepalese Rupee", "New Zealand Dollar", "Norwegian Krone", "Omani Rial", "Pakistani Rupee", "Philippine Peso", "Polish Zloty", "Qatari Riyal", "Romanian New Leu", "Russian Ruble", "Saudi Arabian Riyal", "Singapore Dollar", "South African Rand", "South Korean Won", "Sri Lankan Rupee", "Swedish Krona", "Swiss Franc", "Taiwan New Dollar", "Thai Baht", "Trinidadian Dollar", "Turkish Lira", "US Dollar", "Venezuelan Bolivar" }));
         rightDropDown.setSelectedIndex(5);
         rightDropDown.setBorder(null);
+        rightDropDown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rightDropDownActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_convert_outputLayout = new javax.swing.GroupLayout(panel_convert_output);
         panel_convert_output.setLayout(panel_convert_outputLayout);
@@ -347,33 +392,42 @@ public class View extends javax.swing.JFrame {
 
         panel_convert_buttons.setBackground(new java.awt.Color(32, 0, 96));
 
-        button_swap.setBackground(new java.awt.Color(51, 0, 204));
+        button_swap.setBackground(new java.awt.Color(0, 25, 140));
         button_swap.setForeground(new java.awt.Color(255, 255, 255));
         button_swap.setText("↔");
         button_swap.setBorder(null);
         button_swap.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_swapMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button_swapMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button_swapMouseExited(evt);
             }
         });
 
-        button_covert.setBackground(new java.awt.Color(51, 0, 204));
-        button_covert.setForeground(new java.awt.Color(255, 255, 255));
-        button_covert.setText("Convert");
-        button_covert.setBorder(null);
-        button_covert.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_covertMouseClicked(evt);
+        button_convert.setBackground(new java.awt.Color(0, 25, 140));
+        button_convert.setForeground(new java.awt.Color(255, 255, 255));
+        button_convert.setText("Convert");
+        button_convert.setBorder(null);
+        button_convert.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button_convertMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button_convertMouseExited(evt);
             }
         });
 
-        button_clear.setBackground(new java.awt.Color(51, 0, 204));
+        button_clear.setBackground(new java.awt.Color(0, 25, 140));
         button_clear.setForeground(new java.awt.Color(255, 255, 255));
         button_clear.setText("Clear");
         button_clear.setBorder(null);
         button_clear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                button_clearMouseClicked(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button_clearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button_clearMouseExited(evt);
             }
         });
 
@@ -385,17 +439,17 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel_convert_buttonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button_swap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_covert, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                    .addComponent(button_convert, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                     .addComponent(button_clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panel_convert_buttonsLayout.setVerticalGroup(
             panel_convert_buttonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_convert_buttonsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(button_swap, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(button_covert, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_convert, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(button_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -406,60 +460,45 @@ public class View extends javax.swing.JFrame {
         panel_converterLayout.setHorizontalGroup(
             panel_converterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_converterLayout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(panel_convert_input, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(panel_convert_buttons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(43, 43, 43)
                 .addComponent(panel_convert_output, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(42, 42, 42))
         );
         panel_converterLayout.setVerticalGroup(
             panel_converterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_converterLayout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addGroup(panel_converterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel_convert_input, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel_convert_output, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panel_convert_buttons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGroup(panel_converterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_converterLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addGroup(panel_converterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_convert_input, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel_convert_output, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panel_converterLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(panel_convert_buttons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Converter", panel_converter);
 
         panel_history.setBackground(new java.awt.Color(32, 0, 96));
 
-        panel_graph.setPreferredSize(new java.awt.Dimension(500, 350));
-
-        javax.swing.GroupLayout panel_graphLayout = new javax.swing.GroupLayout(panel_graph);
-        panel_graph.setLayout(panel_graphLayout);
-        panel_graphLayout.setHorizontalGroup(
-            panel_graphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
-        panel_graphLayout.setVerticalGroup(
-            panel_graphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout panel_historyLayout = new javax.swing.GroupLayout(panel_history);
         panel_history.setLayout(panel_historyLayout);
         panel_historyLayout.setHorizontalGroup(
             panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_historyLayout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
-                .addComponent(panel_graph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(153, 153, 153))
+            .addGap(0, 818, Short.MAX_VALUE)
         );
         panel_historyLayout.setVerticalGroup(
             panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_historyLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(panel_graph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("History", panel_history);
+        jTabbedPane1.addTab("Profile", panel_history);
 
         jMenu1.setText("File");
 
@@ -493,40 +532,87 @@ public class View extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_menuItem_ExitActionPerformed
 
-    private void button_covertMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_covertMouseClicked
-        c.btnConvert(this);
-    }//GEN-LAST:event_button_covertMouseClicked
+    private void leftDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftDropDownActionPerformed
+        setLeftSymbol();
+    }//GEN-LAST:event_leftDropDownActionPerformed
 
-    private void button_swapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_swapMouseClicked
-        c.btnSwap(this);
-    }//GEN-LAST:event_button_swapMouseClicked
+    private void rightDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightDropDownActionPerformed
+        setRightSymbol();
+    }//GEN-LAST:event_rightDropDownActionPerformed
 
-    private void button_clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clearMouseClicked
-        c.btnClear(this);
-    }//GEN-LAST:event_button_clearMouseClicked
+    private void button_signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_signupMouseClicked
+        jTabbedPane1.setEnabledAt(2,false);
+    }//GEN-LAST:event_button_signupMouseClicked
+
+    private void button_signupMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_signupMouseEntered
+        hover(button_signup);
+    }//GEN-LAST:event_button_signupMouseEntered
+
+    private void button_signupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_signupMouseExited
+        stopHover(button_signup);
+    }//GEN-LAST:event_button_signupMouseExited
+
+    private void button_loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_loginMouseEntered
+        hover(button_login);
+    }//GEN-LAST:event_button_loginMouseEntered
+
+    private void button_loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_loginMouseExited
+        stopHover(button_login);
+    }//GEN-LAST:event_button_loginMouseExited
+
+    private void button_swapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_swapMouseEntered
+        hover(button_swap);
+    }//GEN-LAST:event_button_swapMouseEntered
+
+    private void button_swapMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_swapMouseExited
+        stopHover(button_swap);
+    }//GEN-LAST:event_button_swapMouseExited
+
+    private void button_convertMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_convertMouseEntered
+        hover(button_convert);
+    }//GEN-LAST:event_button_convertMouseEntered
+
+    private void button_convertMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_convertMouseExited
+        stopHover(button_convert);
+    }//GEN-LAST:event_button_convertMouseExited
+
+    private void button_clearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clearMouseEntered
+        hover(button_clear);
+    }//GEN-LAST:event_button_clearMouseEntered
+
+    private void button_clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clearMouseExited
+        stopHover(button_clear);
+    }//GEN-LAST:event_button_clearMouseExited
     
-    void initUI() {        
-        for (int i = 0; i < labels.length; i++) {
-            labels[i].setHorizontalAlignment(CENTER);
-            labels[i].setPreferredSize(new Dimension(100,30));
-            labels[i].setForeground(Color.WHITE);
-            
-            
-            
-            jTabbedPane1.setTabComponentAt(i, labels[i]);
+    void initUI() {
+        JTextField[] fields = {leftAmount, rightAmount, textField_signup_user, textField_signup_pass, textField_login_user, textField_login_pass};
+        for (int i = 0; i < fields.length; i++) {
+            fields[i].setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.WHITE));
+            fields[i].setCaretColor(Color.WHITE);
         }
-        
     }
     
-    private void setHoverColor() {
-        this.setBackground(Color.red);
+    void initListeners() {
+        button_convert.addActionListener(e -> c.btnConvert(this));
+        button_swap.addActionListener(e -> c.btnSwap(this));
+        button_clear.addActionListener(e -> c.btnClear(this));
+        button_signup.addActionListener(e -> c.btnSignup(this));
+        button_login.addActionListener(e -> c.btnLogin(this));
     }
+    
+    void hover(JButton b) {
+        b.setBackground(hoverColor);
+    }
+    
+    void stopHover(JButton b) {
+        b.setBackground(baseColor);
+    }
+        
     
     //This method replaces the text in the left text box with s
     void setLeftVal(String s) {
         leftAmount.setText(s);
     }
-
     
     //This method replaces the value of the drop down with s
     void setLeftDropDown(String s) {
@@ -536,7 +622,6 @@ public class View extends javax.swing.JFrame {
             }
         }
     }
-
     
     //This method replaces the value of the right text box with s
     void setRightVal(String s) {
@@ -551,35 +636,66 @@ public class View extends javax.swing.JFrame {
             }
         }
     }
-
     
     //This method returns what is currently stored in the left text box
     String getLeftText() {
       return leftAmount.getText();
     }
-
     
     //This method returns what is currently stored in the right drop down
     String getRightDropDown() {
         return rightDropDown.getSelectedItem().toString();
     }
-
     
     //This method returns what is currently stored 
     String getLeftDropDown() {
         return leftDropDown.getSelectedItem().toString();
-    }    
-    
-    void drawHist() {
-        Graphics g = panel_graph.getGraphics();
-        
     }
     
+    String getLeftUserName() {
+        return label_signup_user.getText();
+    }
+    
+    String getRightUserName() {
+        return label_login_user.getText();
+    }
+    
+    String getLeftPassword() {
+        return label_signup_pass.getText();
+    }
+    
+    String getRightPassword() {
+        return label_login_pass.getText();
+    }
+    
+    void setLeftSymbol() {
+        leftSymbol.setText(currency_symbols[leftDropDown.getSelectedIndex()]);
+    }
+    
+    void setRightSymbol() {
+        rightSymbol.setText(currency_symbols[rightDropDown.getSelectedIndex()]);
+    }
+    
+    String getSignUpUser() {
+        return textField_signup_user.getText();
+    }
+    
+    String getSignUpPass() {
+        return new String(textField_signup_pass.getPassword());
+    }
+    
+    String getLoginUser() {
+        return textField_login_user.getText();
+    }
+    
+    String getLoginPass() {
+        return new String(textField_login_pass.getPassword());
+    }
     
     private Controller c = new Controller();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_clear;
-    private javax.swing.JButton button_covert;
+    private javax.swing.JButton button_convert;
     private javax.swing.JButton button_login;
     private javax.swing.JButton button_signup;
     private javax.swing.JButton button_swap;
@@ -600,7 +716,6 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel panel_convert_input;
     private javax.swing.JPanel panel_convert_output;
     private javax.swing.JPanel panel_converter;
-    private javax.swing.JPanel panel_graph;
     private javax.swing.JPanel panel_history;
     private javax.swing.JPanel panel_login;
     private javax.swing.JPanel panel_signup;
@@ -609,12 +724,12 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField rightAmount;
     private javax.swing.JComboBox<String> rightDropDown;
     private javax.swing.JLabel rightSymbol;
-    private javax.swing.JTextField textField_login_pass;
+    private javax.swing.JPasswordField textField_login_pass;
     private javax.swing.JTextField textField_login_user;
-    private javax.swing.JTextField textField_signup_pass;
+    private javax.swing.JPasswordField textField_signup_pass;
     private javax.swing.JTextField textField_signup_user;
     // End of variables declaration//GEN-END:variables
-    private static String[] currency_symbols = {"$", "£", "€", "¥", "¥"};
-    private static JLabel labels[] = {new JLabel("User"), new JLabel("Converter"), new JLabel("History")};
-    private static double hist ;
+    private static String[] currency_symbols = {"$","$","BD","P","R","£","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥"};
+    private Color hoverColor = new Color(0,30,173);
+    private Color baseColor = new Color(0,25,140);
 }

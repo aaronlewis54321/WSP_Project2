@@ -20,6 +20,8 @@ public class Model implements Serializable {
     
     private PropertyChangeSupport propertySupport;
     
+    String currentUser;
+    
     public Model() {
         propertySupport = new PropertyChangeSupport(this);
     }
@@ -50,6 +52,18 @@ public class Model implements Serializable {
     */
     double getExchangeRate(String rate) {
         return 0;
+    }
+
+    boolean userNameExists(String uName) {
+        return true;
+    }
+
+    void createUser(String uName, String password) {
+        
+    }
+
+    void setCurrentUser(String user) {
+        currentUser = user;
     }
     
 }

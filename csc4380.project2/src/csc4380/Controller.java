@@ -49,6 +49,39 @@ public class Controller {
     }
     
     
+    
+    
+    public void btnSignup(View v)
+    {
+        //Make a call to the database to pass in username and verify that that username does not already exist
+        //Example: m.userNameExists(String m);
+        
+        //Write the new username and password to the username database
+        //Example: m.createUser(String uName, String pWord);
+        //For this I will need a getter to get the userName and Password field for the sign up side from Michael
+        
+        //Display confirmation on screen?
+        
+        
+        
+        if(!m.userNameExists(v.getLeftUserName()))
+        {
+            m.createUser(v.getLeftUserName(), v.getLeftPassword());
+        }
+        m.setCurrentUser(v.getLeftUserName());
+    }
+    
+    public void btnLogin(View v)
+    {
+        //Made a call to the database that takes in the username and returns the correct password, so that can be compared to 
+        //the password passed in by the user
+        //Example: m.getPassword(String uName);
+        //For this I will need a getter to get the userName and Password field for the login side from Michael
+    }
+    
+    
+    
+    
     private double convertToUSD(double d, String rate)
     {
         double xchgRate = 1/m.getExchangeRate(rate);
@@ -65,6 +98,6 @@ public class Controller {
     
     public static void main (String[] args) {
         View v = new View();
-        v.setVisible(true);
     }
+    
 }
