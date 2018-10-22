@@ -605,10 +605,6 @@ public class View extends javax.swing.JFrame {
     }
     
 
-        //button_signup.addActionListener(e -> c.btnSignup(this));
-        //button_login.addActionListener(e -> c.btnLogin(this));
-    
-
     void stopHover(JButton b) {
         b.setBackground(baseColor);
     }

@@ -5,13 +5,16 @@
  */
 package csc4380;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+import java.sql.SQLException;
+
 /**
  *
  * @author aaron
  */
 public class Controller {
     
-    private Model m;
+    private static Model m;
     
     
     public Controller()
@@ -25,8 +28,10 @@ public class Controller {
     public void btnConvert(View v)
     {
         double leftVal = convertToUSD(Double.parseDouble(v.getLeftText()), v.getLeftDropDown());
+        System.out.println(leftVal);
         double rightVal = convertToNewCurrency(leftVal, v.getRightDropDown());
-        v.setRightVal(rightVal+"");
+        System.out.println(""+rightVal);
+        v.setRightVal(""+rightVal);
     }
     
     
@@ -64,11 +69,15 @@ public class Controller {
         
         
         
-        if(!m.userNameExists(v.getLeftUserName()))
+    /*    if(!m.userNameExists(v.getLeftUserName()))
         {
             m.createUser(v.getLeftUserName(), v.getLeftPassword());
         }
-        m.setCurrentUser(v.getLeftUserName());
+        m.setCurrentUser(v.getLeftUserName());   */
+        
+        
+        m.createUser(v.getSignUpUser(), v.getSignUpPass());
+      
     }
     
     public void btnLogin(View v)
@@ -77,10 +86,12 @@ public class Controller {
         //the password passed in by the user
         //Example: m.getPassword(String uName);
         //For this I will need a getter to get the userName and Password field for the login side from Michael
-        if(m.userNameExists(v.getRightUserName()) && m.getPassword(v.getRightUserName()).equals(v.getRightPassword()))
-        {
-            m.setCurrentUser(v.getRightUserName());
-        }
+       // if(m.userNameExists(v.getRightUserName()) && m.getPassword(v.getRightUserName()).equals(v.getRightPassword()))
+        //{
+         //   m.setCurrentUser(v.getRightUserName());
+       // }
+        
+        m.login(v.getLoginUser(), v.getLoginPass());
     }
     
     
@@ -88,20 +99,21 @@ public class Controller {
     
     private double convertToUSD(double d, String rate)
     {
-        double xchgRate = 1/m.getExchangeRate(rate);
+        double xchgRate = m.getExchangeRate(rate);
         return d*xchgRate;
     }
     
     private double convertToNewCurrency(double d, String rate)
     {
         //The following method should return exch rate to go from USD to "rate"
-        double xchgRate = m.getExchangeRate(rate);
+        double xchgRate = 1/m.getExchangeRate(rate);
         return d*xchgRate;
     }
     
     
     public static void main (String[] args) {
         View v = new View();
+        m.database();
     }
     
 }
