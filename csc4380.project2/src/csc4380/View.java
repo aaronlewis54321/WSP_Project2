@@ -559,6 +559,7 @@ public class View extends javax.swing.JFrame {
     private void button_loginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_loginMouseExited
         stopHover(button_login);
     }//GEN-LAST:event_button_loginMouseExited
+<<<<<<< HEAD
 
     private void button_swapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_swapMouseEntered
         hover(button_swap);
@@ -580,6 +581,29 @@ public class View extends javax.swing.JFrame {
         hover(button_clear);
     }//GEN-LAST:event_button_clearMouseEntered
 
+=======
+
+    private void button_swapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_swapMouseEntered
+        hover(button_swap);
+    }//GEN-LAST:event_button_swapMouseEntered
+
+    private void button_swapMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_swapMouseExited
+        stopHover(button_swap);
+    }//GEN-LAST:event_button_swapMouseExited
+
+    private void button_convertMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_convertMouseEntered
+        hover(button_convert);
+    }//GEN-LAST:event_button_convertMouseEntered
+
+    private void button_convertMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_convertMouseExited
+        stopHover(button_convert);
+    }//GEN-LAST:event_button_convertMouseExited
+
+    private void button_clearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clearMouseEntered
+        hover(button_clear);
+    }//GEN-LAST:event_button_clearMouseEntered
+
+>>>>>>> 31bef8d31f742722e25bfffcf6b428cd95d8ad4e
     private void button_clearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_clearMouseExited
         stopHover(button_clear);
     }//GEN-LAST:event_button_clearMouseExited
@@ -596,6 +620,7 @@ public class View extends javax.swing.JFrame {
         button_convert.addActionListener(e -> c.btnConvert(this));
         button_swap.addActionListener(e -> c.btnSwap(this));
         button_clear.addActionListener(e -> c.btnClear(this));
+<<<<<<< HEAD
         button_signup.addActionListener(e -> c.btnSignup(this));
         button_login.addActionListener(e -> c.btnLogin(this));
     }
@@ -604,6 +629,16 @@ public class View extends javax.swing.JFrame {
         b.setBackground(hoverColor);
     }
     
+=======
+        //button_signup.addActionListener(e -> c.btnSignup(this));
+        //button_login.addActionListener(e -> c.btnLogin(this));
+    }
+    
+    void hover(JButton b) {
+        b.setBackground(hoverColor);
+    }
+    
+>>>>>>> 31bef8d31f742722e25bfffcf6b428cd95d8ad4e
     void stopHover(JButton b) {
         b.setBackground(baseColor);
     }
@@ -652,6 +687,7 @@ public class View extends javax.swing.JFrame {
         return leftDropDown.getSelectedItem().toString();
     }
     
+<<<<<<< HEAD
     String getLeftUserName() {
         return label_signup_user.getText();
     }
@@ -672,6 +708,13 @@ public class View extends javax.swing.JFrame {
         leftSymbol.setText(currency_symbols[leftDropDown.getSelectedIndex()]);
     }
     
+=======
+    
+    void setLeftSymbol() {
+        leftSymbol.setText(currency_symbols[leftDropDown.getSelectedIndex()]);
+    }
+    
+>>>>>>> 31bef8d31f742722e25bfffcf6b428cd95d8ad4e
     void setRightSymbol() {
         rightSymbol.setText(currency_symbols[rightDropDown.getSelectedIndex()]);
     }
