@@ -56,6 +56,10 @@ public class Model implements Serializable {
     }
 
     
+    void setNative(String s) {
+        
+    }
+    
     
     /*
     //This method should take in a string, of the format "US Dollars", "British Pounds" , etc

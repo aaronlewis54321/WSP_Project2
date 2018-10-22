@@ -33,6 +33,7 @@ public class View extends javax.swing.JFrame {
         this.setVisible(true);
         this.initUI();
         this.initListeners();
+        dialog_edit.setLocationRelativeTo(null);
     }
 
     /**
@@ -44,6 +45,11 @@ public class View extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialog_edit = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        drop_native = new javax.swing.JComboBox<>();
+        button_submit = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         panel_user = new javax.swing.JPanel();
         panel_signup = new javax.swing.JPanel();
@@ -75,9 +81,68 @@ public class View extends javax.swing.JFrame {
         button_convert = new javax.swing.JButton();
         button_clear = new javax.swing.JButton();
         panel_history = new javax.swing.JPanel();
+        label_username = new javax.swing.JLabel();
+        label_native_country = new javax.swing.JLabel();
+        label_country = new javax.swing.JLabel();
+        button_edit = new javax.swing.JButton();
+        label_last = new javax.swing.JLabel();
+        label_last_conver = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItem_Exit = new javax.swing.JMenuItem();
+
+        jPanel1.setBackground(new java.awt.Color(32, 0, 96));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Native Country:");
+
+        drop_native.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Argentina", "Australia", "Bahrain", "Botswana", "Brazil", "Britain", "Brunei", "Bulgaria", "Canada", "Chile", "China", "Colombia", "Croatia", "Czech", "Denmark", "Emirate", "European Region", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Israel", "Japan", "Kazakhstan", "Kuwait", "Libya", "Malaysia", "Mauritius", "Mexico", "Nepal", "New Zealand", "Norwegia", "Oman", "Pakistan", "Philippines", "Poland", "Qatar", "Romania", "Russia", "Saudi Arabia", "Singapore", "South Africa", "South Korea", "Sri Lanka", "Sweden", "Switzerland", "Taiwan", "Thailand", "Trinidad", "Turkey", "United States", "Venezuela" }));
+
+        button_submit.setText("Submit");
+        button_submit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_submitMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(drop_native, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_submit)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(drop_native, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addComponent(button_submit)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout dialog_editLayout = new javax.swing.GroupLayout(dialog_edit.getContentPane());
+        dialog_edit.getContentPane().setLayout(dialog_editLayout);
+        dialog_editLayout.setHorizontalGroup(
+            dialog_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialog_editLayout.setVerticalGroup(
+            dialog_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -348,7 +413,7 @@ public class View extends javax.swing.JFrame {
 
         rightAmount.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         rightAmount.setForeground(new java.awt.Color(255, 255, 255));
-        rightAmount.setText("0.77");
+        rightAmount.setText("0.76");
         rightAmount.setBorder(null);
         rightAmount.setOpaque(false);
         rightAmount.addActionListener(new java.awt.event.ActionListener() {
@@ -492,15 +557,72 @@ public class View extends javax.swing.JFrame {
 
         panel_history.setBackground(new java.awt.Color(32, 0, 96));
 
+        label_username.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        label_username.setForeground(new java.awt.Color(255, 255, 255));
+        label_username.setText("placeholder");
+
+        label_native_country.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_native_country.setForeground(new java.awt.Color(255, 255, 255));
+        label_native_country.setText("Native Country:");
+
+        label_country.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_country.setForeground(new java.awt.Color(255, 255, 255));
+        label_country.setText("country");
+
+        button_edit.setText("Edit Profile");
+        button_edit.setToolTipText("");
+        button_edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button_editMouseClicked(evt);
+            }
+        });
+
+        label_last.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_last.setForeground(new java.awt.Color(255, 255, 255));
+        label_last.setText("Last Conversion:");
+
+        label_last_conver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        label_last_conver.setForeground(new java.awt.Color(255, 255, 255));
+        label_last_conver.setText("country");
+
         javax.swing.GroupLayout panel_historyLayout = new javax.swing.GroupLayout(panel_history);
         panel_history.setLayout(panel_historyLayout);
         panel_historyLayout.setHorizontalGroup(
             panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 818, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_historyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_edit)
+                .addContainerGap())
+            .addGroup(panel_historyLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_historyLayout.createSequentialGroup()
+                        .addComponent(label_last)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(label_last_conver))
+                    .addGroup(panel_historyLayout.createSequentialGroup()
+                        .addComponent(label_native_country)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(label_country))
+                    .addComponent(label_username))
+                .addContainerGap(573, Short.MAX_VALUE))
         );
         panel_historyLayout.setVerticalGroup(
             panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGroup(panel_historyLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(label_username)
+                .addGap(34, 34, 34)
+                .addGroup(panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_native_country)
+                    .addComponent(label_country))
+                .addGap(18, 18, 18)
+                .addGroup(panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_last)
+                    .addComponent(label_last_conver))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+                .addComponent(button_edit)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Profile", panel_history);
@@ -592,6 +714,18 @@ public class View extends javax.swing.JFrame {
     private void rightAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightAmountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rightAmountActionPerformed
+
+    private void button_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_editMouseClicked
+        dialog_edit.pack();
+        dialog_edit.setVisible(true);
+    }//GEN-LAST:event_button_editMouseClicked
+
+    private void button_submitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_submitMouseClicked
+        country = drop_native.getSelectedItem().toString();
+        dialog_edit.setVisible(false);
+        label_country.setText(country);
+        c.btnEditProf(this);
+    }//GEN-LAST:event_button_submitMouseClicked
     
     void initUI() {
         JTextField[] fields = {leftAmount, rightAmount, textField_signup_user, textField_signup_pass, textField_login_user, textField_login_pass};
@@ -607,6 +741,7 @@ public class View extends javax.swing.JFrame {
         button_clear.addActionListener(e -> c.btnClear(this));
         button_signup.addActionListener(e -> c.btnSignup(this));
         button_login.addActionListener(e -> c.btnLogin(this));
+        
     }
     
     void hover(JButton b) {
@@ -682,9 +817,6 @@ public class View extends javax.swing.JFrame {
         leftSymbol.setText(currency_symbols[leftDropDown.getSelectedIndex()]);
     }
     
-    
-
-    
     void setRightSymbol() {
         rightSymbol.setText(currency_symbols[rightDropDown.getSelectedIndex()]);
     }
@@ -709,18 +841,29 @@ public class View extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_clear;
     private javax.swing.JButton button_convert;
+    private javax.swing.JButton button_edit;
     private javax.swing.JButton button_login;
     private javax.swing.JButton button_signup;
+    private javax.swing.JButton button_submit;
     private javax.swing.JButton button_swap;
+    private javax.swing.JDialog dialog_edit;
+    private javax.swing.JComboBox<String> drop_native;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel label_country;
+    private javax.swing.JLabel label_last;
+    private javax.swing.JLabel label_last_conver;
     private javax.swing.JLabel label_login;
     private javax.swing.JLabel label_login_pass;
     private javax.swing.JLabel label_login_user;
+    private javax.swing.JLabel label_native_country;
     private javax.swing.JLabel label_signup;
     private javax.swing.JLabel label_signup_pass;
     private javax.swing.JLabel label_signup_user;
+    private javax.swing.JLabel label_username;
     private javax.swing.JTextField leftAmount;
     private javax.swing.JComboBox<String> leftDropDown;
     private javax.swing.JLabel leftSymbol;
@@ -745,4 +888,5 @@ public class View extends javax.swing.JFrame {
     private static String[] currency_symbols = {"$","$","BD","P","R","£","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥"};
     private Color hoverColor = new Color(0,30,173);
     private Color baseColor = new Color(0,25,140);
+    public String country;
 }

@@ -53,7 +53,9 @@ public class Controller {
         v.setLeftDropDown(temp);
     }
     
-    
+    public void btnEditProf(View v) {
+        m.setNative(v.country);
+    }
     
     
     public void btnSignup(View v)
