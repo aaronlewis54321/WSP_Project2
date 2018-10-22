@@ -71,6 +71,7 @@ INSERT INTO country_info(Country_name,country_currencyName) VALUES ('Taiwan', 'T
 INSERT INTO country_info(Country_name,country_currencyName) VALUES ('Thailand', 'Thai Baht');
 INSERT INTO country_info(Country_name,country_currencyName) VALUES ('Trinidad', 'Trinidadian Dollar');
 INSERT INTO country_info(Country_name,country_currencyName) VALUES ('Turkey',  'Turkish Lira');
+INSERT INTO country_info(Country_name,country_currencyName) VALUES ('United States',  'US Dollar');
 INSERT INTO country_info(Country_name,country_currencyName) VALUES ('Venezuela', 'Venezuelan Bolivar');
 
 
