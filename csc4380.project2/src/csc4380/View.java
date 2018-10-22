@@ -667,7 +667,7 @@ public class View extends javax.swing.JFrame {
     String getRightPassword() {
         return label_login_pass.getText();
     }
-    
+   
     void setLeftSymbol() {
         leftSymbol.setText(currency_symbols[leftDropDown.getSelectedIndex()]);
     }
