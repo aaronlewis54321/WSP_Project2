@@ -95,6 +95,11 @@ public class Controller {
        // }
         
         m.login(v.getLoginUser(), v.getLoginPass());
+        v.setStatus(m.getStatus());
+        if(m.getStatus().equals("login success"))
+            v.unlockProfile();
+        else
+            v.lockProfile();
     }
     
     

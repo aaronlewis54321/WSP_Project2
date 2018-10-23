@@ -34,6 +34,7 @@ public class View extends javax.swing.JFrame {
         this.initUI();
         this.initListeners();
         dialog_edit.setLocationRelativeTo(null);
+        this.lockProfile();
     }
 
     /**
@@ -71,11 +72,9 @@ public class View extends javax.swing.JFrame {
         panel_converter = new javax.swing.JPanel();
         panel_convert_input = new javax.swing.JPanel();
         leftAmount = new javax.swing.JTextField();
-        leftSymbol = new javax.swing.JLabel();
         leftDropDown = new javax.swing.JComboBox<>();
         panel_convert_output = new javax.swing.JPanel();
         rightAmount = new javax.swing.JTextField();
-        rightSymbol = new javax.swing.JLabel();
         rightDropDown = new javax.swing.JComboBox<>();
         panel_convert_buttons = new javax.swing.JPanel();
         button_swap = new javax.swing.JButton();
@@ -379,18 +378,9 @@ public class View extends javax.swing.JFrame {
         leftAmount.setBorder(null);
         leftAmount.setOpaque(false);
 
-        leftSymbol.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        leftSymbol.setForeground(new java.awt.Color(255, 255, 255));
-        leftSymbol.setText("$");
-
         leftDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Argentine Peso", "Australian Dollar", "Bahraini Dinar", "Botswana Pula", "Brazilian Real", "British Pound", "Bruneian Dollar", "Bulgarian Lev", "Canadian Dollar", "Chilean Peso", "Chinese Yuan Renminbi", "Colombian Peso", "Croatian Kuna", "Czech Koruna", "Danish Krone", "Emirati Dirham", "Euro", "Hong Kong Dollar", "Hungarian Forint", "Icelandic Krona", "Indian Rupee", "Indonesian Rupiah", "Iranian Rial", "Israeli Shekel", "Japanese Yen", "Kazakhstani Tenge", "Kuwaiti Dinar", "Libyan Dinar", "Malaysian Ringgit", "Mauritian Rupee", "Mexican Peso", "Nepalese Rupee", "New Zealand Dollar", "Norwegian Krone", "Omani Rial", "Pakistani Rupee", "Philippine Peso", "Polish Zloty", "Qatari Riyal", "Romanian New Leu", "Russian Ruble", "Saudi Arabian Riyal", "Singapore Dollar", "South African Rand", "South Korean Won", "Sri Lankan Rupee", "Swedish Krona", "Swiss Franc", "Taiwan New Dollar", "Thai Baht", "Trinidadian Dollar", "Turkish Lira", "US Dollar", "Venezuelan Bolivar" }));
         leftDropDown.setSelectedIndex(52);
         leftDropDown.setBorder(null);
-        leftDropDown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                leftDropDownActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel_convert_inputLayout = new javax.swing.GroupLayout(panel_convert_input);
         panel_convert_input.setLayout(panel_convert_inputLayout);
@@ -398,8 +388,6 @@ public class View extends javax.swing.JFrame {
             panel_convert_inputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_convert_inputLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(leftSymbol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_convert_inputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(leftDropDown, 0, 170, Short.MAX_VALUE)
                     .addComponent(leftAmount))
@@ -411,9 +399,7 @@ public class View extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(leftDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_convert_inputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(leftAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(leftSymbol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(leftAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
         );
 
@@ -430,27 +416,16 @@ public class View extends javax.swing.JFrame {
             }
         });
 
-        rightSymbol.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        rightSymbol.setForeground(new java.awt.Color(255, 255, 255));
-        rightSymbol.setText("£");
-
         rightDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Argentine Peso", "Australian Dollar", "Bahraini Dinar", "Botswana Pula", "Brazilian Real", "British Pound", "Bruneian Dollar", "Bulgarian Lev", "Canadian Dollar", "Chilean Peso", "Chinese Yuan Renminbi", "Colombian Peso", "Croatian Kuna", "Czech Koruna", "Danish Krone", "Emirati Dirham", "Euro", "Hong Kong Dollar", "Hungarian Forint", "Icelandic Krona", "Indian Rupee", "Indonesian Rupiah", "Iranian Rial", "Israeli Shekel", "Japanese Yen", "Kazakhstani Tenge", "Kuwaiti Dinar", "Libyan Dinar", "Malaysian Ringgit", "Mauritian Rupee", "Mexican Peso", "Nepalese Rupee", "New Zealand Dollar", "Norwegian Krone", "Omani Rial", "Pakistani Rupee", "Philippine Peso", "Polish Zloty", "Qatari Riyal", "Romanian New Leu", "Russian Ruble", "Saudi Arabian Riyal", "Singapore Dollar", "South African Rand", "South Korean Won", "Sri Lankan Rupee", "Swedish Krona", "Swiss Franc", "Taiwan New Dollar", "Thai Baht", "Trinidadian Dollar", "Turkish Lira", "US Dollar", "Venezuelan Bolivar" }));
         rightDropDown.setSelectedIndex(5);
         rightDropDown.setBorder(null);
-        rightDropDown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rightDropDownActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panel_convert_outputLayout = new javax.swing.GroupLayout(panel_convert_output);
         panel_convert_output.setLayout(panel_convert_outputLayout);
         panel_convert_outputLayout.setHorizontalGroup(
             panel_convert_outputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_convert_outputLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(rightSymbol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(panel_convert_outputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(rightDropDown, 0, 170, Short.MAX_VALUE)
                     .addComponent(rightAmount))
@@ -459,12 +434,10 @@ public class View extends javax.swing.JFrame {
         panel_convert_outputLayout.setVerticalGroup(
             panel_convert_outputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_convert_outputLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(rightDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_convert_outputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rightAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rightSymbol, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(rightAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
         );
 
@@ -543,7 +516,7 @@ public class View extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(panel_convert_buttons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
-                .addComponent(panel_convert_output, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel_convert_output, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
         panel_converterLayout.setVerticalGroup(
@@ -666,14 +639,6 @@ public class View extends javax.swing.JFrame {
     private void menuItem_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem_ExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menuItem_ExitActionPerformed
-
-    private void leftDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_leftDropDownActionPerformed
-        setLeftSymbol();
-    }//GEN-LAST:event_leftDropDownActionPerformed
-
-    private void rightDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightDropDownActionPerformed
-        setRightSymbol();
-    }//GEN-LAST:event_rightDropDownActionPerformed
 
     private void button_signupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_signupMouseClicked
         jTabbedPane1.setEnabledAt(2,false);
@@ -820,14 +785,7 @@ public class View extends javax.swing.JFrame {
     String getRightPassword() {
         return label_login_pass.getText();
     }
-   
-    void setLeftSymbol() {
-        leftSymbol.setText(currency_symbols[leftDropDown.getSelectedIndex()]);
-    }
-    
-    void setRightSymbol() {
-        rightSymbol.setText(currency_symbols[rightDropDown.getSelectedIndex()]);
-    }
+
     
     String getSignUpUser() {
         return textField_signup_user.getText();
@@ -846,8 +804,17 @@ public class View extends javax.swing.JFrame {
     }
     
     void setStatus(String s) {
-        if(!s.equals("")) {
-            status_field.setText(s);
+        if(s.equals("signup failed")) {
+            status_field.setText("Signup Failed!");
+            status_field.setBackground(new Color(255,153,153));
+            status_field.setOpaque(true);
+        } else if(s.equals("login success")) {
+            status_field.setBackground(new Color(153,255,153));
+            status_field.setText("Login Successful!");
+            status_field.setOpaque(true);
+        }else if(s.equals("login failed")) {
+            status_field.setBackground(new Color(255,153,153));
+            status_field.setText("Login Failed!");
             status_field.setOpaque(true);
         } else {
             status_field.setText("");
@@ -855,7 +822,15 @@ public class View extends javax.swing.JFrame {
         }
         
     }
-    private Controller c = new Controller();
+    
+    void unlockProfile() {
+        jTabbedPane1.setEnabledAt(2, true);
+    }
+    
+    void lockProfile() {
+        jTabbedPane1.setEnabledAt(2, false);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_clear;
     private javax.swing.JButton button_convert;
@@ -884,7 +859,6 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JLabel label_username;
     private javax.swing.JTextField leftAmount;
     private javax.swing.JComboBox<String> leftDropDown;
-    private javax.swing.JLabel leftSymbol;
     private javax.swing.JMenuItem menuItem_Exit;
     private javax.swing.JPanel panel_convert_buttons;
     private javax.swing.JPanel panel_convert_input;
@@ -897,14 +871,13 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPanel panel_vert_separator;
     private javax.swing.JTextField rightAmount;
     private javax.swing.JComboBox<String> rightDropDown;
-    private javax.swing.JLabel rightSymbol;
     private javax.swing.JLabel status_field;
     private javax.swing.JPasswordField textField_login_pass;
     private javax.swing.JTextField textField_login_user;
     private javax.swing.JPasswordField textField_signup_pass;
     private javax.swing.JTextField textField_signup_user;
     // End of variables declaration//GEN-END:variables
-    private static String[] currency_symbols = {"$","$","BD","P","R","£","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥","¥","$","£","€","¥"};
+    private Controller c = new Controller();
     private Color hoverColor = new Color(0,30,173);
     private Color baseColor = new Color(0,25,140);
     public String country;

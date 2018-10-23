@@ -164,7 +164,7 @@ public class Model implements Serializable {
             //Logger lgr = Logger.getLogger(Version.class.getName());
             //lgr.log(Level.SEVERE, ex.getMessage(), ex);
                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
-               setStatus("Signup failed");
+               setStatus("signup failed");
                
         } finally {
             try {
@@ -198,13 +198,16 @@ public class Model implements Serializable {
             if (rs.next()) {
                 System.out.println(rs.getString(1));
                 current_user = rs.getString(1);
+                setStatus("login success");
+            } else {
+                setStatus("login failed");
             }
 
         } catch (SQLException ex) {
             //Logger lgr = Logger.getLogger(Version.class.getName());
             //lgr.log(Level.SEVERE, ex.getMessage(), ex);
                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
-               setStatus("Login Failed");
+               setStatus("login failed");
                
         } finally {
             try {
