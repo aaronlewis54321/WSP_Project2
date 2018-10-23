@@ -67,6 +67,7 @@ public class View extends javax.swing.JFrame {
         button_login = new javax.swing.JButton();
         textField_login_pass = new javax.swing.JPasswordField();
         panel_vert_separator = new javax.swing.JPanel();
+        status_field = new javax.swing.JLabel();
         panel_converter = new javax.swing.JPanel();
         panel_convert_input = new javax.swing.JPanel();
         leftAmount = new javax.swing.JTextField();
@@ -330,32 +331,39 @@ public class View extends javax.swing.JFrame {
             .addGap(0, 350, Short.MAX_VALUE)
         );
 
+        status_field.setBackground(new java.awt.Color(255, 153, 153));
+        status_field.setForeground(new java.awt.Color(255, 255, 255));
+        status_field.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout panel_userLayout = new javax.swing.GroupLayout(panel_user);
         panel_user.setLayout(panel_userLayout);
         panel_userLayout.setHorizontalGroup(
             panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_userLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(panel_signup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(panel_vert_separator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addGroup(panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_userLayout.createSequentialGroup()
+                        .addComponent(status_field, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(234, 234, 234))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_userLayout.createSequentialGroup()
+                        .addComponent(panel_signup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(panel_vert_separator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67))))
         );
         panel_userLayout.setVerticalGroup(
             panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_userLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(status_field, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panel_userLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panel_vert_separator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_userLayout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(panel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(panel_signup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(panel_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel_signup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel_vert_separator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("User", panel_user);
@@ -741,7 +749,7 @@ public class View extends javax.swing.JFrame {
         button_clear.addActionListener(e -> c.btnClear(this));
         button_signup.addActionListener(e -> c.btnSignup(this));
         button_login.addActionListener(e -> c.btnLogin(this));
-        
+
     }
     
     void hover(JButton b) {
@@ -837,6 +845,16 @@ public class View extends javax.swing.JFrame {
         return new String(textField_login_pass.getPassword());
     }
     
+    void setStatus(String s) {
+        if(!s.equals("")) {
+            status_field.setText(s);
+            status_field.setOpaque(true);
+        } else {
+            status_field.setText("");
+            status_field.setOpaque(false);
+        }
+        
+    }
     private Controller c = new Controller();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_clear;
@@ -880,6 +898,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JTextField rightAmount;
     private javax.swing.JComboBox<String> rightDropDown;
     private javax.swing.JLabel rightSymbol;
+    private javax.swing.JLabel status_field;
     private javax.swing.JPasswordField textField_login_pass;
     private javax.swing.JTextField textField_login_user;
     private javax.swing.JPasswordField textField_signup_pass;
@@ -889,4 +908,5 @@ public class View extends javax.swing.JFrame {
     private Color hoverColor = new Color(0,30,173);
     private Color baseColor = new Color(0,25,140);
     public String country;
+    private String status;
 }

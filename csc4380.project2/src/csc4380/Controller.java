@@ -79,7 +79,8 @@ public class Controller {
         
         
         m.createUser(v.getSignUpUser(), v.getSignUpPass());
-      
+        v.setStatus(m.getStatus());
+        
     }
     
     public void btnLogin(View v)

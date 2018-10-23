@@ -24,6 +24,8 @@ public class Model implements Serializable {
     private java.sql.Statement st;
     private ResultSet rs;
     private String  jdbc_drivers, url, user, password = "";
+    private String current_user;
+    private String status;
     
     public static final String PROP_SAMPLE_PROPERTY = "sampleProperty";
     
@@ -58,6 +60,41 @@ public class Model implements Serializable {
     
     void setNative(String s) {
         
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/currency", "root", "");
+            st = con.createStatement();
+            st.executeUpdate("UPDATE user_info SET nativeCountry = '"+s+"' WHERE username = '"+current_user+"'");
+
+            //if (rs.next()) {
+            //    System.out.println(rs.getString(1));
+            //}
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               System.out.println("Exception Caught");
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
     }
     
     
@@ -127,7 +164,7 @@ public class Model implements Serializable {
             //Logger lgr = Logger.getLogger(Version.class.getName());
             //lgr.log(Level.SEVERE, ex.getMessage(), ex);
                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
-               System.out.println("Exception Caught");
+               setStatus("Signup failed");
                
         } finally {
             try {
@@ -160,13 +197,14 @@ public class Model implements Serializable {
 
             if (rs.next()) {
                 System.out.println(rs.getString(1));
+                current_user = rs.getString(1);
             }
 
         } catch (SQLException ex) {
             //Logger lgr = Logger.getLogger(Version.class.getName());
             //lgr.log(Level.SEVERE, ex.getMessage(), ex);
                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
-               System.out.println("Exception Caught");
+               setStatus("Login Failed");
                
         } finally {
             try {
@@ -195,6 +233,15 @@ public class Model implements Serializable {
     String getPassword(String uName) {
         return "";
     }
+    
+    void setStatus(String s) {
+        status = s;
+    }
+    
+    String getStatus() {
+        return status;
+    }
+    
     public void database(){
         con = null;
         st = null;
