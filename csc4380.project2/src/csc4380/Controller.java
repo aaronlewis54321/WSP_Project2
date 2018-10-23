@@ -5,7 +5,7 @@
  */
 package csc4380;
 
-//import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.SQLException;
 
 /**
