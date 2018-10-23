@@ -5,7 +5,7 @@
  */
 package csc4380;
 
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+//import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.SQLException;
 
 /**
@@ -17,9 +17,9 @@ public class Controller {
     private static Model m;
     
     
-    public Controller()
+    public Controller(Model model)
     {
-        m = new Model();
+        m = model;
     }
     
     
@@ -118,10 +118,6 @@ public class Controller {
         return d*xchgRate;
     }
     
-    
-    public static void main (String[] args) {
-        View v = new View();
-        m.database();
-    }
+
     
 }

@@ -27,7 +27,7 @@ public class View extends javax.swing.JFrame {
     /**
      * Creates new form View
      */
-    public View() {
+    public View(Controller controller) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -35,6 +35,7 @@ public class View extends javax.swing.JFrame {
         this.initListeners();
         dialog_edit.setLocationRelativeTo(null);
         this.lockProfile();
+        c = controller;
     }
 
     /**
@@ -877,7 +878,7 @@ public class View extends javax.swing.JFrame {
     private javax.swing.JPasswordField textField_signup_pass;
     private javax.swing.JTextField textField_signup_user;
     // End of variables declaration//GEN-END:variables
-    private Controller c = new Controller();
+    private Controller c;
     private Color hoverColor = new Color(0,30,173);
     private Color baseColor = new Color(0,25,140);
     public String country;
