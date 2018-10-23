@@ -196,7 +196,6 @@ public class Model implements Serializable {
             rs = st.executeQuery("SELECT * FROM user_info WHERE username = '"+uName+"' AND password = '"+password+"'");
 
             if (rs.next()) {
-                System.out.println(rs.getString(1));
                 current_user = rs.getString(1);
                 setStatus("login success");
             } else {
