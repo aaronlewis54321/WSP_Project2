@@ -77,9 +77,10 @@ public class Controller {
     {
         m.login(v.getLoginUser(), v.getLoginPass());
         v.setStatus(m.getStatus());
-        if(m.getStatus().equals("login success"))
+        if(m.getStatus().equals("login success")) {
             v.unlockProfile();
-        else
+            v.loadUserInfo(m.getUserInfo());
+        } else
             v.lockProfile();
     }
     
