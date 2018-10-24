@@ -32,6 +32,7 @@ public class Controller {
         double rightVal = convertToNewCurrency(leftVal, v.getRightDropDown());
         System.out.println(""+rightVal);
         v.setRightVal(""+rightVal);
+        m.setLastConversion(v.getRightDropDown());
     }
     
     

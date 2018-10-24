@@ -262,4 +262,8 @@ public class Model implements Serializable {
         password = "";
         
     }
+
+    void setLastConversion(String currency) {
+        
+    }
 }
