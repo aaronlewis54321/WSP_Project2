@@ -39,9 +39,7 @@ public class Controller {
     public void btnClear (View v)
     {
         v.setLeftVal("");
-        v.setLeftDropDown("");
         v.setRightVal("");
-        v.setRightDropDown("");
     }
     
     

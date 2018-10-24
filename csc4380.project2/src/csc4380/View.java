@@ -730,7 +730,10 @@ public class View extends javax.swing.JFrame {
     
     //This method replaces the text in the left text box with s
     void setLeftVal(String s) {
-        leftAmount.setText(String.format("%.2f", Double.parseDouble(s)));
+        if(s.equals("")){
+            leftAmount.setText("");
+        } else
+            leftAmount.setText(String.format("%.2f", Double.parseDouble(s)));
     }
     
     //This method replaces the value of the drop down with s
@@ -744,7 +747,10 @@ public class View extends javax.swing.JFrame {
     
     //This method replaces the value of the right text box with s
     void setRightVal(String s) {
-        rightAmount.setText(String.format("%.2f", Double.parseDouble(s)));
+        if(s.equals("")){
+            rightAmount.setText("");
+        } else
+            rightAmount.setText(String.format("%.2f", Double.parseDouble(s)));
     }
 
     //This method replaces the value of the right drop down with s
