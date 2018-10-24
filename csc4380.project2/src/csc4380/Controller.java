@@ -33,6 +33,7 @@ public class Controller {
         System.out.println(""+rightVal);
         v.setRightVal(""+rightVal);
         m.setLastConversion(v.getRightDropDown());
+        v.updateConver(v.getRightDropDown());
     }
     
     
@@ -79,6 +80,7 @@ public class Controller {
         if(m.getStatus().equals("login success")) {
             v.unlockProfile();
             v.loadUserInfo(m.getUserInfo());
+            v.setLeftDropDown(m.getCurrency());
         } else
             v.lockProfile();
     }
@@ -102,6 +104,10 @@ public class Controller {
         return d*xchgRate;
     }
     
+    public void btnDelete(View v) {
+        m.deleteUser();
+        v.goHome();
+    }
 
     
 }

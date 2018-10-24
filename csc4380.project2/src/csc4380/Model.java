@@ -155,10 +155,8 @@ public class Model implements Serializable {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/currency", "root", "");
             st = con.createStatement();
             st.executeUpdate("INSERT INTO user_info (username, password, nativeCountry, lastConversion) VALUES ('"+uName+"', '"+password+"', 'US', 'EURO')");
-
-            //if (rs.next()) {
-            //    System.out.println(rs.getString(1));
-            //}
+            setStatus("signup success");
+            
 
         } catch (SQLException ex) {
             //Logger lgr = Logger.getLogger(Version.class.getName());
@@ -264,6 +262,115 @@ public class Model implements Serializable {
     }
 
     void setLastConversion(String currency) {
-        
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/currency", "root", "");
+            st = con.createStatement();
+            if(!current_user.equals(""))
+                st.executeUpdate("UPDATE user_info SET lastConversion = '"+currency+"' WHERE username = '"+current_user+"'");
+
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               setStatus("login failed");
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+    }
+    
+    void deleteUser() {
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/currency", "root", "");
+            st = con.createStatement();
+            st.executeUpdate("DELETE FROM user_info WHERE username = '"+current_user+"'");
+            current_user = "";
+
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               setStatus("signup failed");
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+    }
+    
+    String getCurrency() {
+        try {
+            System.setProperty("jdbc.drivers", jdbc_drivers);
+ 
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/currency", "root", "");
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT * FROM country_info WHERE Country_name = '"+current_native+"'");
+
+            if (rs.next()) {
+                return rs.getString(2);
+            } else {
+                return "US Dollar";
+            }
+
+        } catch (SQLException ex) {
+            //Logger lgr = Logger.getLogger(Version.class.getName());
+            //lgr.log(Level.SEVERE, ex.getMessage(), ex);
+               Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+               setStatus("login failed");
+               
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (st != null) {
+                    st.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+
+            } catch (SQLException ex) {
+               // Logger lgr = Logger.getLogger(Version.class.getName());
+                Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+                //lgr.log(Level.WARNING, ex.getMessage(), ex);
+                            }
+        }
+        return "US Dollar";
     }
 }

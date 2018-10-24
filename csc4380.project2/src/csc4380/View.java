@@ -88,6 +88,7 @@ public class View extends javax.swing.JFrame {
         button_edit = new javax.swing.JButton();
         label_last = new javax.swing.JLabel();
         label_last_conver = new javax.swing.JLabel();
+        button_delete = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItem_Exit = new javax.swing.JMenuItem();
@@ -567,12 +568,16 @@ public class View extends javax.swing.JFrame {
         label_last_conver.setForeground(new java.awt.Color(255, 255, 255));
         label_last_conver.setText("country");
 
+        button_delete.setText("Delete");
+
         javax.swing.GroupLayout panel_historyLayout = new javax.swing.GroupLayout(panel_history);
         panel_history.setLayout(panel_historyLayout);
         panel_historyLayout.setHorizontalGroup(
             panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_historyLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(button_delete)
+                .addGap(18, 18, 18)
                 .addComponent(button_edit)
                 .addContainerGap())
             .addGroup(panel_historyLayout.createSequentialGroup()
@@ -603,7 +608,9 @@ public class View extends javax.swing.JFrame {
                     .addComponent(label_last)
                     .addComponent(label_last_conver))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
-                .addComponent(button_edit)
+                .addGroup(panel_historyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_edit)
+                    .addComponent(button_delete))
                 .addContainerGap())
         );
 
@@ -715,7 +722,7 @@ public class View extends javax.swing.JFrame {
         button_clear.addActionListener(e -> c.btnClear(this));
         button_signup.addActionListener(e -> c.btnSignup(this));
         button_login.addActionListener(e -> c.btnLogin(this));
-
+        button_delete.addActionListener(e -> c.btnDelete(this));
     }
     
     void hover(JButton b) {
@@ -844,9 +851,19 @@ public class View extends javax.swing.JFrame {
         label_last_conver.setText(s[2]);
     }
     
+    void updateConver(String s) {
+        label_last_conver.setText(s);
+    }
+    
+    void goHome() {
+        jTabbedPane1.setSelectedIndex(0);
+        lockProfile();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_clear;
     private javax.swing.JButton button_convert;
+    private javax.swing.JButton button_delete;
     private javax.swing.JButton button_edit;
     private javax.swing.JButton button_login;
     private javax.swing.JButton button_signup;
