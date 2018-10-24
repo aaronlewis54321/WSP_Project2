@@ -1,30 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package csc4380;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 import java.sql.SQLException;
 
 /**
- *
- * @author aaron
+ *This is the controller class, which is responsible for creating the methods that
+ * are called when the components in the view class are selected, and communicating with the 
+ * model class to pull user info, country info, and exchange rates.
  */
 public class Controller {
     
     private static Model m;
     
-    
+    //Constructor for Model class. It is passed in an instance of the model, so it 
+    //able to communicate with the database
     public Controller(Model model)
     {
         m = model;
     }
     
     
-    //This method converts the value in the left text box to the currecny specified by
-    //the right drop down.
+
+    //This method gets the value in the left textbox and converts it to USD, and then it takes 
+    //The value in USD and converts it to the currency from the right drop down.
     public void btnConvert(View v)
     {
         double leftVal = convertToUSD(Double.parseDouble(v.getLeftText()), v.getLeftDropDown());
@@ -35,7 +34,7 @@ public class Controller {
     }
     
     
-    //Sets every text box to ""
+    //Sets every text box to "", to reset the screen when clear is selected
     public void btnClear (View v)
     {
         v.setLeftVal("");
@@ -53,47 +52,28 @@ public class Controller {
         v.setLeftDropDown(temp);
     }
     
+    //This method takes the user preference for country and writes it to the database
     public void btnEditProf(View v) {
         m.setNative(v.country);
     }
     
+   
     
+    //this method creates a user in the database based on the username and password in the view,
+    //And then it set's the user's status in the view class to the value of status in the model class.
     public void btnSignup(View v)
     {
-        //Make a call to the database to pass in username and verify that that username does not already exist
-        //Example: m.userNameExists(String m);
-        
-        //Write the new username and password to the username database
-        //Example: m.createUser(String uName, String pWord);
-        //For this I will need a getter to get the userName and Password field for the sign up side from Michael
-        
-        //Display confirmation on screen?
-        
-        
-        
-    /*    if(!m.userNameExists(v.getLeftUserName()))
-        {
-            m.createUser(v.getLeftUserName(), v.getLeftPassword());
-        }
-        m.setCurrentUser(v.getLeftUserName());   */
-        
-        
         m.createUser(v.getSignUpUser(), v.getSignUpPass());
         v.setStatus(m.getStatus());
         
     }
     
+    //This method calls the login method located in the model class and passes in the 
+    //username and password from the view class. After setting the status, it checks to 
+    //verify that login was successful; if it was, then it tells the view class to unlock
+    //the profile tab
     public void btnLogin(View v)
     {
-        //Made a call to the database that takes in the username and returns the correct password, so that can be compared to 
-        //the password passed in by the user
-        //Example: m.getPassword(String uName);
-        //For this I will need a getter to get the userName and Password field for the login side from Michael
-       // if(m.userNameExists(v.getRightUserName()) && m.getPassword(v.getRightUserName()).equals(v.getRightPassword()))
-        //{
-         //   m.setCurrentUser(v.getRightUserName());
-       // }
-        
         m.login(v.getLoginUser(), v.getLoginPass());
         v.setStatus(m.getStatus());
         if(m.getStatus().equals("login success"))
@@ -104,13 +84,16 @@ public class Controller {
     
     
     
-    
+    //This is helper method for this class, which takes in a value of currency
+    //rate and converts that value to USD and returns the result.
     private double convertToUSD(double d, String rate)
     {
         double xchgRate = m.getExchangeRate(rate);
         return d*xchgRate;
     }
     
+    //This is a helper method for this class, which takes in a value of currency
+    //in USD and converts it to currency rate
     private double convertToNewCurrency(double d, String rate)
     {
         //The following method should return exch rate to go from USD to "rate"
