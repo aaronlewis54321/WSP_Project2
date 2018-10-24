@@ -832,6 +832,12 @@ public class View extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(2, false);
     }
     
+    void loadUserInfo(String[] s) {
+        label_username.setText(s[0]);
+        label_country.setText(s[1]);
+        label_last_conver.setText(s[2]);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_clear;
     private javax.swing.JButton button_convert;
