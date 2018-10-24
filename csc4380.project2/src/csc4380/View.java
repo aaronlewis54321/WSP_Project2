@@ -552,11 +552,21 @@ public class View extends javax.swing.JFrame {
         label_country.setForeground(new java.awt.Color(255, 255, 255));
         label_country.setText("country");
 
+        button_edit.setBackground(new java.awt.Color(0, 25, 140));
+        button_edit.setForeground(new java.awt.Color(255, 255, 255));
         button_edit.setText("Edit Profile");
         button_edit.setToolTipText("");
+        button_edit.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                button_editMouseDragged(evt);
+            }
+        });
         button_edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 button_editMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button_editMouseEntered(evt);
             }
         });
 
@@ -568,7 +578,17 @@ public class View extends javax.swing.JFrame {
         label_last_conver.setForeground(new java.awt.Color(255, 255, 255));
         label_last_conver.setText("country");
 
+        button_delete.setBackground(new java.awt.Color(0, 25, 140));
+        button_delete.setForeground(new java.awt.Color(255, 255, 255));
         button_delete.setText("Delete");
+        button_delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button_deleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button_deleteMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_historyLayout = new javax.swing.GroupLayout(panel_history);
         panel_history.setLayout(panel_historyLayout);
@@ -707,6 +727,22 @@ public class View extends javax.swing.JFrame {
         label_country.setText(country);
         c.btnEditProf(this);
     }//GEN-LAST:event_button_submitMouseClicked
+
+    private void button_deleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_deleteMouseEntered
+        hover(button_delete);
+    }//GEN-LAST:event_button_deleteMouseEntered
+
+    private void button_deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_deleteMouseExited
+        stopHover(button_delete);
+    }//GEN-LAST:event_button_deleteMouseExited
+
+    private void button_editMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_editMouseDragged
+        hover(button_edit);
+    }//GEN-LAST:event_button_editMouseDragged
+
+    private void button_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_editMouseEntered
+        stopHover(button_edit);
+    }//GEN-LAST:event_button_editMouseEntered
     
     void initUI() {
         JTextField[] fields = {leftAmount, rightAmount, textField_signup_user, textField_signup_pass, textField_login_user, textField_login_pass};
