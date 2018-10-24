@@ -24,7 +24,7 @@ public class Model implements Serializable {
     private java.sql.Statement st;
     private ResultSet rs;
     private String  jdbc_drivers, url, user, password = "";
-    private String current_user;
+    private String current_user, current_native, current_lastConver;
     private String status;
     
     public static final String PROP_SAMPLE_PROPERTY = "sampleProperty";
@@ -197,6 +197,8 @@ public class Model implements Serializable {
 
             if (rs.next()) {
                 current_user = rs.getString(1);
+                current_native = rs.getString(3);
+                current_lastConver = rs.getString(4);
                 setStatus("login success");
             } else {
                 setStatus("login failed");
@@ -242,6 +244,11 @@ public class Model implements Serializable {
     
     String getStatus() {
         return status;
+    }
+    
+    String[] getUserInfo() {
+        String[] temp = {current_user, current_native, current_lastConver};
+        return temp;
     }
     
     public void database(){
